@@ -41,7 +41,7 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAa0AAAGtCAIAAAAqNLxgAAAgAElEQVR4Aex9B3QTV9p2dr9/azYJ7g..." alt="Hard-working Pikachu">
+        <img src="l8bl.png" alt="Hard-working Pikachu">
     </div>
     <div class="shell-container">
         <form method="POST">
